@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Box, Card, Link, Typography, Stack } from '@mui/material';
+import { Box, Card, Link, Typography, Stack, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
 // components
 import Label from '../../../components/Label';
 import { ColorPreview } from '../../../components/color-utils';
+import seatIcon from '../../../assets/icons/seat-person.png'
+import gasIcon from '../../../assets/icons/gas.png'
+import timerIcon from '../../../assets/icons/timer.png'
+import wheelIcon from '../../../assets/icons/wheel.png'
 
 // ----------------------------------------------------------------------
 
@@ -55,6 +59,31 @@ export default function ShopProductCard({ product }) {
             {name}
           </Typography>
         </Link>
+
+        <Grid container spacing={1}>
+          <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box component={"img"} src={seatIcon} alt="seat icon" sx={{ width: '28px', height: '28px', marginRight: '7px' }} />
+            <Typography component={"p"} sx={{ fontSize: '14px' }}>4 Chỗ</Typography>
+          </Grid>
+          <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box component={"img"} src={gasIcon} alt="gas icon" sx={{
+              width: '24px', height: '24px', marginRight: '7px'
+            }} />
+            <Typography component={"p"} sx={{ fontSize: '14px' }}>Xăng</Typography>
+          </Grid>
+          <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box component={"img"} src={timerIcon} alt="timer icon" sx={{
+              width: '24px', height: '24px', marginRight: '7px'
+            }} />
+            <Typography component={"p"} sx={{ fontSize: '14px' }}>6.1km / lít</Typography>
+          </Grid>
+          <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box component={"img"} src={wheelIcon} alt="wheel icon" sx={{
+              width: '24px', height: '24px', marginRight: '7px'
+            }} />
+            <Typography component={"p"} sx={{ fontSize: '14px' }}>Tự động</Typography>
+          </Grid>
+        </Grid>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <ColorPreview colors={colors} />
